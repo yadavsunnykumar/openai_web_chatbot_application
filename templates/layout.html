@@ -3,9 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-  </head>
+    <title>Chatbot</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .chat-history {
+            max-height: 400px;
+            margin-bottom: 20px;
+            overflow-y: auto;
+           
+            
+            scroll-behavior: smooth;
+        }
+        .chat-message {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        .user-input {
+            background-color: #d1ecf1;
+            text-align: right;
+        }
+        .ai-response {
+            background-color: #e2e3e5;
+            text-align: left;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            max-height: 200px;
+            
+        }
+        #footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px;
+        }
+        .input-group {
+            width: 100%;
+        }
+        .input-group input {
+            flex: 1;
+        }
+        .input-group button {
+            flex-shrink: 0;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        
+        
+    </style>
+
+    
+  </head> 
 </head>
 <body>
     {% include 'navbar.html' %}
@@ -17,5 +75,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    
+
 </body>
 </html>

@@ -50,45 +50,39 @@ async def chat_page(request: Request):
 
 
 @app.websocket("/ws")
-async def chat(websocket:WebSocket):
+async def chat(websocket: WebSocket):
     await websocket.accept()
+    global chat_history
     while True:
         user_input = await websocket.receive_text()
         chat_log.append({"role": "user", "content": user_input})
         try:
-            # Call the OpenAI chat completion API
             response = openai.chat.completions.create(
                 model="gpt-4",
                 messages=chat_log,
                 temperature=0.6,
-                stream=True  # Enable streaming for real-time responses
-
+                stream=True
             )
             ai_response = ""
             for chunk in response:
                 if chunk.choices[0].delta.content is not None:
                     ai_response += chunk.choices[0].delta.content
                     await websocket.send_text(chunk.choices[0].delta.content)
-                chat_history.append({"user": user_input, "assistant": ai_response})
-            
+
+            # ✅ append instead of reset
+            chat_history.append({"user": user_input, "assistant": ai_response})
+
         except Exception as e:
             reply = f"Error: {str(e)}"
             await websocket.send_text(reply)
             break
-        
-        
 
-@app.post("/",response_class=HTMLResponse)
-async def chat(request:Request, user_input: Annotated[str, Form()]):
-    #Function to get a response from the OpenAI chat model.
-    '''Args:
-        prompt (str): The input prompt for the chat model.
-    Returns:
-        str: The response from the chat model.
-    '''
+
+@app.post("/", response_class=HTMLResponse)
+async def chat(request: Request, user_input: Annotated[str, Form()]):
+    global chat_history
     chat_log.append({"role": "user", "content": user_input})
-  
-    # Call the OpenAI chat completion API
+
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=chat_log,
@@ -96,7 +90,10 @@ async def chat(request:Request, user_input: Annotated[str, Form()]):
     )
     reply = response.choices[0].message.content
     chat_log.append({"role": "assistant", "content": reply})
+
+    # ✅ append instead of reset
     chat_history.append({"user": user_input, "assistant": reply})
+    
     return templates.TemplateResponse("home.html", {"request": request, "chat_history": chat_history})
 
 

@@ -6,13 +6,26 @@
   <div>
     <div class="card text-left mt-3">
       <div class="card-header">Chat History:</div>
-      <div class="card-body chat-history" id="chatHistory"></div>
+      <div class="card-body chat-history" id="chatHistory">
+        {% for response in chat_history %}
+        <div class="chat-message user-input">{{ response.user }}</div>
+        <div class="chat-message ai-response">{{ response.assistant }}</div>
+        {% endfor %}
+      </div>
     </div>
   </div>
   <div class="container" id="footer">
     <div class="input-group mb-3">
-      <input class="form-control" placeholder="Add input here" id="userInput" />
-      <button class="btn btn-outline-primary" type="button" id="sendButton">
+      <input
+        class="form-control chat-history"
+        placeholder="Add input here"
+        id="userInput"
+      />
+      <button
+        class="btn btn-outline-primary btn-small"
+        type="button"
+        id="sendButton"
+      >
         Send
       </button>
     </div>

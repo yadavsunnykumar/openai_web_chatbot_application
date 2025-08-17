@@ -14,8 +14,8 @@ A simple and interactive web-based chatbot application powered by OpenAI's API. 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/openai_chat_web.git
-   cd openai_chat_web
+   git clone https://github.com/yadavsunnykumar/openai_chat_web.git
+   cd openai_web_chatbot_application
    ```
 
 2. Install dependencies:

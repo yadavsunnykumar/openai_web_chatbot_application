@@ -8,13 +8,13 @@
     <style>
         body {
             background-color: #f8f9fa;
+           
         }
         .chat-history {
             max-height: 400px;
             margin-bottom: 20px;
             overflow-y: auto;
-           
-            
+            background-color: #ffffff; /* light mode background */
             scroll-behavior: smooth;
         }
         .chat-message {
@@ -25,7 +25,7 @@
             scroll-behavior: smooth;
         }
         .user-input {
-            background-color: #d1ecf1;
+            background-color: #d1ecf1; /* light blue in light mode */
             text-align: right;
         }
         .ai-response {
@@ -43,6 +43,14 @@
             background-color: #f8f9fa;
             padding: 10px;
         }
+        .btn-small {
+        font-size: 10px;     /* smaller text */
+        border-radius: 20px; /* rounded corners */
+        margin-top: 0;
+        margin-bottom: 2px;
+        margin-left: 20px;
+        margin-bottom: 19px;
+    }
         .input-group {
             width: 100%;
         }
@@ -58,7 +66,34 @@
         .navbar-brand {
             font-weight: bold;
         }
-        
+       /* 🌙 Dark Mode Overrides */
+    body.dark-mode {
+        background-color: #121212;
+        color: #e9ecef;
+    }
+    body.dark-mode .chat-history {
+        background-color: #1e1e1e; /* dark background for chat */
+        border: 1px solid #343a40;
+        color: #fff;
+    }
+    body.dark-mode .chat-message.user-input {
+        background-color: #2b6cb0; /* darker blue for dark mode */
+        color: #fff;
+    }
+    body.dark-mode .chat-message.ai-response {
+        background-color: #343a40;
+        color: #f8f9fa;
+    }
+    body.dark-mode .card-header {
+        background-color: #212529; /* dark gray header */
+        color: #f8f9fa;
+    }
+    body.dark-mode #footer {
+        background-color: #1e1e1e;
+    }
+    body.dark-mode .navbar {
+        background-color: #212529 !important;
+    }
         
     </style>
 

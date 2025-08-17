@@ -1,6 +1,26 @@
-<nav class="navbar navbar-dark bg-primary">
-    <div class="container-md">
-        <a class="navbar-brand" href="/">Personal Chatbot</a>
-        <a class="navbar-brand" href="/image">Image Generator</a>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-md">
+    <div class="btn-group">
+      <button
+        class="btn btn-outline-success dropdown-toggle"
+        data-bs-toggle="dropdown"
+        type="button"
+        aria-expanded="false"
+      >
+        Change Chatbot
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="/" class="dropdown-item">Chatbot</a></li>
+        <li><a href="/image" class="dropdown-item">Image Generator</a></li>
+      </ul>
     </div>
+    <button onclick="toggleDarkMode()" class="btn btn-sm btn-secondary">
+      🌙 Dark Mode
+    </button>
+  </div>
 </nav>
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
+</script>

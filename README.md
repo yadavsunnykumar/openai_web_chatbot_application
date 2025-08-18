@@ -42,7 +42,7 @@ A simple and interactive web-based chatbot application powered by OpenAI's API. 
 
 ## Technologies Used
 
-- **Backend**: Python (Flask)
+- **Backend**: Python (FastAPI)
 - **Frontend**: HTML, CSS, JavaScript
 - **API**: OpenAI GPT API
 

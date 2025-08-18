@@ -6,6 +6,7 @@ from typing import Annotated
 from fastapi import FastAPI, Form,Request,WebSocket
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
+import uvicorn
 
 
 
@@ -121,3 +122,8 @@ async def image(request:Request, prompt: Annotated[str, Form()]):
     image_url = response.data[0].url
     image_history.append(image_url)
     return templates.TemplateResponse("image.html", {"request": request, "image_history": image_history})
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run(app, host="0.0.0.0", port=port)

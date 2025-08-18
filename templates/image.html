@@ -32,3 +32,15 @@
     </div>
   </div>
 </div>
+
+<script>
+  inputField = document.getElementById("userInput");
+  document
+    .getElementById("footer")
+    .addEventListener("submit", function (event) {
+      if (inputField.value.trim() === "") {
+        event.preventDefault();
+        alert("Input field cannot be empty!");
+      }
+    });
+</script>

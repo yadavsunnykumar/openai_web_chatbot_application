@@ -85,4 +85,10 @@
   document.addEventListener("DOMContentLoaded", () => {
     scrollToBottom();
   });
+
+  document.getElementById("sendButton").addEventListener("click", function () {
+    if (userInput.value.trim() === "") {
+      alert("Input field cannot be empty!");
+    }
+  });
 </script>

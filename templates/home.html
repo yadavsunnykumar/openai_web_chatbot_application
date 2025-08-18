@@ -33,7 +33,7 @@
 </div>
 
 <script>
-  var ws = new WebSocket("ws://localhost:8000/ws");
+  var ws = new WebSocket("ws://localhost:10000/ws");
   var sendButton = document.getElementById("sendButton");
   var userInput = document.getElementById("userInput");
   var chatHistory = document.getElementById("chatHistory");
@@ -86,9 +86,9 @@
     scrollToBottom();
   });
 
-  document.getElementById("sendButton").addEventListener("click", function () {
-    if (userInput.value.trim() === "") {
-      alert("Input field cannot be empty!");
-    }
-  });
+  // document.getElementById("sendButton").addEventListener("click", function () {
+  //   if (userInput.value.trim() === "") {
+  //     alert("Input field cannot be empty!");
+  //   }
+  // });
 </script>

@@ -33,7 +33,9 @@
 </div>
 
 <script>
-  var ws = new WebSocket("ws://localhost:10000/ws");
+  var ws = new WebSocket(
+    "wss://https://openai-web-chatbot-application.onrender.com//ws"
+  );
   var sendButton = document.getElementById("sendButton");
   var userInput = document.getElementById("userInput");
   var chatHistory = document.getElementById("chatHistory");
